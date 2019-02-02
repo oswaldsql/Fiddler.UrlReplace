@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4707854F-2048-4C96-98F2-2B725988D6B1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UrlReplace</RootNamespace>
+    <AssemblyName>UrlReplace</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Fiddler">
+      <HintPath>..\Lib\Fiddler2\Fiddler.exe</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BulkUrlReplace.Impelmentation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CommandProcessor.cs" />
+    <Compile Include="EditMode.cs" />
+    <Compile Include="LayoutTypes.cs" />
+    <Compile Include="ListViewItemComparer.cs" />
+    <Compile Include="BulkUrlReplace.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BulkUrlReplace.Designer.cs">
+      <DependentUpon>BulkUrlReplace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BulkURLRewriter.cs" />
+    <Compile Include="EditUrlReplace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditUrlReplace.Designer.cs">
+      <DependentUpon>EditUrlReplace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MarkSessionsEventArgs.Impelmentation.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="StatusChangedEventArgs.Impelmentation.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BulkUrlReplace.resx">
+      <DependentUpon>BulkUrlReplace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditUrlReplace.resx">
+      <DependentUpon>EditUrlReplace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="RegExReplace.ico" />
+    <None Include="Resources\HelpText.txt" />
+    <Content Include="TextReplace.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UrlReplace.Core\UrlReplace.Core.csproj">
+      <Project>{2f16ced8-cd8c-41a3-8f2b-717128b60514}</Project>
+      <Name>UrlReplace.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(OutDir)UrlReplace*dll" "%25USERPROFILE%25\AppData\Local\Programs\Fiddler\Scripts\"</PostBuildEvent>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+</Project>

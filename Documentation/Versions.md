@@ -1,0 +1,1 @@
+This section contains information about the status of individual version of the plugin.

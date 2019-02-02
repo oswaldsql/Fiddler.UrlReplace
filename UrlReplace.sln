@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30324.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrlReplace", "UrlReplace.Fiddler2\UrlReplace.csproj", "{4707854F-2048-4C96-98F2-2B725988D6B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrlReplace.Core", "UrlReplace.Core\UrlReplace.Core.csproj", "{2F16CED8-CD8C-41A3-8F2B-717128B60514}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{3D9743A7-E1EC-4AF4-9E8A-753B7D0CB524}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Fiddler2", "Fiddler2", "{EC97FB48-6695-48D2-BC21-6BC7BB115EA6}"
+	ProjectSection(SolutionItems) = preProject
+		Lib\Fiddler2\Fiddler.exe = Lib\Fiddler2\Fiddler.exe
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Fiddler4", "Fiddler4", "{4353466B-619F-4BCF-B0AC-6F484C4647E9}"
+	ProjectSection(SolutionItems) = preProject
+		Lib\Fiddler4\Fiddler.exe = Lib\Fiddler4\Fiddler.exe
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrlReplace.Core.Tests", "UrlReplace.Core.Tests\UrlReplace.Core.Tests.csproj", "{60F788C6-8C60-48D5-A4D0-F5C1043ACEF1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4707854F-2048-4C96-98F2-2B725988D6B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4707854F-2048-4C96-98F2-2B725988D6B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4707854F-2048-4C96-98F2-2B725988D6B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4707854F-2048-4C96-98F2-2B725988D6B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F16CED8-CD8C-41A3-8F2B-717128B60514}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F16CED8-CD8C-41A3-8F2B-717128B60514}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F16CED8-CD8C-41A3-8F2B-717128B60514}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F16CED8-CD8C-41A3-8F2B-717128B60514}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60F788C6-8C60-48D5-A4D0-F5C1043ACEF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60F788C6-8C60-48D5-A4D0-F5C1043ACEF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60F788C6-8C60-48D5-A4D0-F5C1043ACEF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60F788C6-8C60-48D5-A4D0-F5C1043ACEF1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EC97FB48-6695-48D2-BC21-6BC7BB115EA6} = {3D9743A7-E1EC-4AF4-9E8A-753B7D0CB524}
+		{4353466B-619F-4BCF-B0AC-6F484C4647E9} = {3D9743A7-E1EC-4AF4-9E8A-753B7D0CB524}
+	EndGlobalSection
+EndGlobal

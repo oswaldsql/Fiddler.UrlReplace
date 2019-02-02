@@ -1,0 +1,27 @@
+UrlReplace 
+	Toggles urlreplace on and off
+UrlReplace Help
+	Displays this dialog
+UrlReplace Load
+	Lets you load a settings file into urlreplace
+UrlReplace Merge
+	Lets you merge settings in a file with your existing items
+UrlReplace Save
+	Lets you save your setting
+UrlReplace Clear
+	Removes all items from the list
+
+	-----------------------------------------
+	
+	Create a new replace command using the following notation
+
+UrlReplace seekString replaceString [Group] [Comment] [/i] [/c] [/r] [/a]
+	seekString : the sting to search for
+	replaceString : the string to replace with
+	Group : Optional group to list the search in
+	Comment : Optional comment
+	/i : Ignore case (default true)
+	/c : Case sensitive	
+	/r : Regular expression (default false)
+	/a : Active (default true)
+	/d : Disabled (default Enabled)
