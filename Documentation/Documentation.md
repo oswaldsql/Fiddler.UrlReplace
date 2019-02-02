@@ -1,6 +1,6 @@
 # Documentation
 
-Fiddler Bulk UrlReplace is an extension of the urlreplace functionality already present in [Fiddler2](http://www.fiddler2.com/fiddler2/)
+Fiddler Bulk UrlReplace is an extension of the urlreplace functionality already present in [Fiddler](https://www.telerik.com/support/fiddler)
 
 Fiddler2’s UrlReplace lets you change URL’s on the fly transparent to most browser and many other programs using the net. This plugin extends this functionality in the following arrears.
 
@@ -9,13 +9,13 @@ Fiddler2’s UrlReplace lets you change URL’s on the fly transparent to most b
 * **Load/Save** : Lets you load and save settings file for sharing
 * **Logging** : Lets you see which URL’s were replaces by which search/replace items
 * **[UI](UI.md)** : Presents a UI for creating and maintaining search/replace items
-* **[Command line interface](Command-line-interface.md)**: Extends the existing Comman line interface with new commands while respecting the [existing functionality](http://www.fiddler2.com/Fiddler/help/quickexec.asp)
+* **[Command line interface](CommandLineInterface.md)**: Extends the existing Comman line interface with new commands while respecting the [existing functionality](https://docs.telerik.com/fiddler/knowledgebase/quickexec)
 * **Extended search options**
   * **Host only** : Searches only the host part of the URL
   * **Regular expressions** : Allows you to use regular expressions when searching/replacing
   * **Case sensitive/insensitive** : Allows you to make case sensitive replaces
 
-See the [Examples](Examples) for at deeper wall through of the options
+See the [Examples](Examples.md) for at deeper wall through of the options
 
 ## Installation
 

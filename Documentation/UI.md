@@ -2,7 +2,7 @@
 
 The plug-in presents a UI for editing and persist the settings between sessions.
 
-Interact using the context menu (rightclick) or use the [Short cut keys](Short-cut-keys)
+Interact using the context menu (rightclick) or use the [Short cut keys](ShortCutKeys.md)
 
 ![Screen shot 1](UI_ScreenShot1.jpg)
 

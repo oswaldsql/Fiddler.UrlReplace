@@ -28,4 +28,4 @@ This allowed me to browse the entire site on the one server by doing
 something like this. 
 ![Short curcuit the load balancer](Examples_ShortCircuitLoadBalancer.jpg)
 
-See also the examples in [Debugging Localhost Traffic](Debugging-Localhost-Traffic) and [Debugging Webservices](webservices)
+See also the examples in [Debugging Localhost Traffic](DebuggingLocalhostTraffic.md) and [Debugging Webservices](webservices.md)
