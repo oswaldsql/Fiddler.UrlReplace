@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30324.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrlReplace", "UrlReplace.Fiddler2\UrlReplace.csproj", "{4707854F-2048-4C96-98F2-2B725988D6B1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrlReplace", "UrlReplace.Fiddler\UrlReplace.csproj", "{4707854F-2048-4C96-98F2-2B725988D6B1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrlReplace.Core", "UrlReplace.Core\UrlReplace.Core.csproj", "{2F16CED8-CD8C-41A3-8F2B-717128B60514}"
 EndProject
