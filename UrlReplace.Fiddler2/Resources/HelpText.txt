@@ -15,7 +15,7 @@ UrlReplace Clear
 	
 	Create a new replace command using the following notation
 
-UrlReplace seekString replaceString [Group] [Comment] [/i] [/c] [/r] [/a]
+UrlReplace seekString replaceString [Group] [Comment] [/i] [/c] [/r] [/a] [/d]
 	seekString : the sting to search for
 	replaceString : the string to replace with
 	Group : Optional group to list the search in
