@@ -72,9 +72,9 @@ namespace UrlReplace
 			this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
 			this.loadFileDialog = new System.Windows.Forms.OpenFileDialog();
 			this.mergeFileDialog = new System.Windows.Forms.OpenFileDialog();
-			this.chkEnabled = new System.Windows.Forms.CheckBox();
 			this.HomePageLink = new System.Windows.Forms.LinkLabel();
 			this.actionItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.chkEnabled = new System.Windows.Forms.CheckBox();
 			this.contextMenu.SuspendLayout();
 			this.Replaces.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.actionItemsBindingSource)).BeginInit();
@@ -83,6 +83,7 @@ namespace UrlReplace
 			// ActionList
 			// 
 			this.ActionList.AllowColumnReorder = true;
+			this.ActionList.AllowDrop = true;
 			this.ActionList.CheckBoxes = true;
 			this.ActionList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.chActive,
@@ -108,7 +109,11 @@ namespace UrlReplace
 			this.ActionList.View = System.Windows.Forms.View.Details;
 			this.ActionList.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.ActionListColumnClick);
 			this.ActionList.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.ActionListItemChecked);
+			this.ActionList.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.ActionList_ItemDrag);
 			this.ActionList.SelectedIndexChanged += new System.EventHandler(this.ListView1SelectedIndexChanged);
+			this.ActionList.DragDrop += new System.Windows.Forms.DragEventHandler(this.ActionList_DragDrop);
+			this.ActionList.DragEnter += new System.Windows.Forms.DragEventHandler(this.ActionList_DragEnter);
+			this.ActionList.DragOver += new System.Windows.Forms.DragEventHandler(this.ActionList_DragOver);
 			// 
 			// chActive
 			// 
@@ -404,21 +409,6 @@ namespace UrlReplace
 			this.mergeFileDialog.Filter = "UrlReplace files (*.xml)|*.xml|All files (*.*)|*.*";
 			this.mergeFileDialog.Title = "Load and merge replace settings";
 			// 
-			// chkEnabled
-			// 
-			this.chkEnabled.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.chkEnabled.AutoSize = true;
-			this.chkEnabled.Checked = global::UrlReplace.Properties.Settings.Default.UrlReplaceEnabled;
-			this.chkEnabled.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.chkEnabled.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::UrlReplace.Properties.Settings.Default, "UrlReplaceEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-			this.chkEnabled.Location = new System.Drawing.Point(614, 3);
-			this.chkEnabled.Name = "chkEnabled";
-			this.chkEnabled.Size = new System.Drawing.Size(65, 17);
-			this.chkEnabled.TabIndex = 0;
-			this.chkEnabled.Text = "Enabled";
-			this.chkEnabled.UseVisualStyleBackColor = true;
-			this.chkEnabled.CheckedChanged += new System.EventHandler(this.ChkEnabledCheckedChanged);
-			// 
 			// HomePageLink
 			// 
 			this.HomePageLink.AutoSize = true;
@@ -433,6 +423,21 @@ namespace UrlReplace
 			// actionItemsBindingSource
 			// 
 			this.actionItemsBindingSource.DataSource = typeof(UrlReplace.Core.ActionItems);
+			// 
+			// chkEnabled
+			// 
+			this.chkEnabled.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.chkEnabled.AutoSize = true;
+			this.chkEnabled.Checked = global::UrlReplace.Properties.Settings.Default.UrlReplaceEnabled;
+			this.chkEnabled.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.chkEnabled.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::UrlReplace.Properties.Settings.Default, "UrlReplaceEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+			this.chkEnabled.Location = new System.Drawing.Point(614, 3);
+			this.chkEnabled.Name = "chkEnabled";
+			this.chkEnabled.Size = new System.Drawing.Size(65, 17);
+			this.chkEnabled.TabIndex = 0;
+			this.chkEnabled.Text = "Enabled";
+			this.chkEnabled.UseVisualStyleBackColor = true;
+			this.chkEnabled.CheckedChanged += new System.EventHandler(this.ChkEnabledCheckedChanged);
 			// 
 			// BulkUrlReplace
 			// 

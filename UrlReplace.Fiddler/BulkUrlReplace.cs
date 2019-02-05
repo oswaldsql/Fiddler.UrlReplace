@@ -3,6 +3,8 @@
 	using System;
 	using System.ComponentModel;
 	using System.Diagnostics;
+	using System.Drawing;
+	using System.Linq;
 	using System.Windows.Forms;
 
 	using UrlReplace.Core;
@@ -213,6 +215,103 @@
 
 			this.shownMenuItem.Checked = show;
 			this.Enabled = show;
+		}
+
+		private void ActionList_ItemDrag(object sender, ItemDragEventArgs e)
+		{
+
+		}
+
+		private void ActionList_DragEnter(object sender, DragEventArgs e)
+		{
+			this.ActionList.InsertionMark.AppearsAfterItem = true;
+			this.ActionList.InsertionMark.Color = Color.Brown;
+
+			var test = e.Data.GetData("Fiddler.Session[]") as Fiddler.Session[];
+			if (test != null && test.Length == 1)
+			{
+				e.Effect = DragDropEffects.All;
+			}
+			else
+			{
+				e.Effect = DragDropEffects.None;
+			}
+		}
+
+		private void ActionList_DragDrop(object sender, DragEventArgs e)
+		{
+			var test = e.Data.GetData("Fiddler.Session[]") as Fiddler.Session[];
+			if (test != null && test.Length == 1)
+			{
+				var positionInForm = this.GetPositionInForm(this.ActionList);
+				var nearestIndex = this.ActionList.InsertionMark.NearestIndex(new Point(e.X + positionInForm.X, e.Y - positionInForm.Y));
+				var listViewItem = this.ActionList.GetItemAt(e.X + positionInForm.X, e.Y - positionInForm.Y)?.Tag as ActionItem;
+
+				e.Effect = DragDropEffects.Link;
+				//this.HomePageLink.Text = test.First().fullUrl;
+
+				var actionItem = Factory.ActionItem();
+				actionItem.Seek = test.First().fullUrl;
+				if (listViewItem != null)
+				{
+					actionItem.Group = listViewItem.Group;
+				}
+
+				var editUrlReplace = new EditUrlReplace
+					                     {
+						                     ActionItems = this.ActionItems, ActionItem = actionItem, Mode = EditMode.Add
+					                     };
+				editUrlReplace.Show();
+				editUrlReplace.Closing += this.EditUrlReplaceClosing;
+			}
+		}
+
+		public Point GetPositionInForm(Control ctrl)
+		{
+			Point p = ctrl.Location;
+			Control parent = ctrl.Parent;
+			while (! (parent is Form))
+			{
+				p.Offset(parent.Location.X, parent.Location.Y);
+				parent = parent.Parent;
+			}
+			return p;
+		}
+
+		private void ActionList_DragOver(object sender, DragEventArgs e)
+		{
+			try
+			{
+				//var control = this.ActionList.GetChildAtPoint(new Point(e.X, e.Y));
+				//this.HomePageLink.Text = control.Name;
+
+
+				var positionInForm = this.GetPositionInForm(ActionList);
+				var y = e.Y - positionInForm.Y;
+
+				foreach (ListViewItem item in this.ActionList.Items)
+				{
+					var bounds = item.GetBounds(ItemBoundsPortion.Entire);
+					if (bounds.Top < y && bounds.Top + bounds.Height > y)
+					{
+						this.HomePageLink.Text = item.ToString();
+					}
+				}
+
+
+				//var nearestIndex = this.ActionList.InsertionMark.NearestIndex(new Point(e.X - positionInForm.X, e.Y - positionInForm.Y));
+
+				//this.HomePageLink.Text = nearestIndex.ToString();
+
+				//this.ActionList.Items[0];
+
+				//var listViewItem = this.ActionList.GetItemAt(e.X - positionInForm.X, e.Y - positionInForm.Y)?.Tag as ActionItem;
+				//this.HomePageLink.Text = listViewItem?.Seek;
+			}
+			catch (Exception exception)
+			{
+				this.HomePageLink.Text = exception.ToString();
+			}
 		}
 	}
 }
